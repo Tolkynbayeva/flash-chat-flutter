@@ -1,0 +1,1 @@
+ /Users/tolkynbayeva/flash-chat-flutter/.dart_tool/flutter_build/ec0f014d497f6550f2a9b1ae491972e2/native_assets.yaml: 
