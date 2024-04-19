@@ -2,6 +2,12 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "animated_text_kit",
+      "rootUri": "file:///Users/tolkynbayeva/.pub-cache/hosted/pub.dev/animated_text_kit-4.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "async",
       "rootUri": "file:///Users/tolkynbayeva/.pub-cache/hosted/pub.dev/async-2.11.0",
       "packageUri": "lib/",
@@ -140,7 +146,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2024-04-16T11:51:18.183230Z",
+  "generated": "2024-04-16T21:56:54.585506Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }
