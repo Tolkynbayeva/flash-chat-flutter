@@ -3,6 +3,7 @@ import 'package:flash_chat/constants.dart';
 import 'package:flash_chat/components/rounded_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'chat_screen.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
 class RegistrationScreen extends StatefulWidget {
@@ -13,6 +14,7 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final _auth = FirebaseAuth.instance;
+  bool showSpiner = false;
   String email = '';
   String password = '';
   @override
@@ -56,23 +58,36 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 hintText: 'Enter your password.',
               ),
             ),
-            SizedBox(
-              height: 24.0,
-            ),
-             RoundedButton(
+            SizedBox(height: 24.0),
+            RoundedButton(
               value: 'Register',
               onPressed: () async {
+                setState(() {
+                  showSpiner = true;
+                });
                 try {
-                  final UserCredential newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+                  final UserCredential newUser =
+                      await _auth.createUserWithEmailAndPassword(
+                          email: email, password: password);
                   if (newUser.user != null) {
                     Navigator.pushNamed(context, ChatScreen.id);
                   }
-                } 
-                catch (e) {
+
+                  setState(() {
+                    showSpiner = false;
+                  });
+                } catch (e) {
                   print(e);
                 }
               },
               color: Colors.blueAccent,
+            ),
+            if (showSpiner)
+            Center(
+              child: SpinKitFadingCircle(
+                color: Colors.blueAccent,
+                size: 50.0,
+              ),
             ),
           ],
         ),
